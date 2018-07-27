@@ -5,7 +5,7 @@ author_name:        "eon" # change this to your name
 logo_url:           https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/129/thinking-face_1f914.png # Get it from GitHub API: https://api.github.com/users/<username>
 
 # Site Settings
-url:                https://orslow.github.io # main url
+url:                https://heiswayi.github.io # main url
 baseurl:            /the-plain
 permalink:          /:title # Post permalink
 timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
