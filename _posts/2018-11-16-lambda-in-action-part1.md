@@ -26,6 +26,7 @@ exports.handler = (event, context, callback) => {
 Execution role -> Create a new role from one or more templates -> myBasicExecution
 
 생성 후 상단에 json 형식으로 값(name)을 넣고 테스트 해볼 수 있습니다(log도 확인).
+<div class="divider"></div>
 
 #### AWS CLI 설치(저는 OS X 상에서 진행했습니다. (aws.amazon.com/cli 참고))
 
@@ -38,6 +39,7 @@ $ pip3 install awscli --upgrade --user
 $ (echo 'alias aws=" ~/Library/Python/3.7/bin/aws"' >> ~/.bash_profile)
 
 $ aws --version
+<div class="divider"></div>
 
 #### [AWS CLI 구성](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html?shortFooter=true)
 
