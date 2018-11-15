@@ -1,5 +1,5 @@
 ---
-title: AWS Lambda 인 액션 Part 1
+title: AWS Lambda 인 액션 Part 1(작성 중)
 updated: 2018-11-16 05:12
 ---
 
@@ -41,7 +41,7 @@ $ (echo 'alias aws=" ~/Library/Python/3.7/bin/aws"' >> ~/.bash_profile)
 $ aws --version
 <div class="divider"></div>
 
-#### [AWS CLI 구성(링크)](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html?shortFooter=true)
+#### [AWS CLI 구성(링크)](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html?shortFooter=true){:target="_blank"}
 
 
 #### Policy
