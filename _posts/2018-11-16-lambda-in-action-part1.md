@@ -43,7 +43,7 @@ $ aws --version
 https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html?shortFooter=true
 
 ##### Policy
-![Policies](https://github.com/orslow/orslow.github.io/tree/master/assets/img/policies.png)
+![Policies](http://github.com/orslow/orslow.github.io/tree/master/assets/img/policies.png)
 
 $ aws lambda invoke --function-name greetingsOnDemand --payload '{"name":"John"}' output.txt
 
