@@ -1,18 +1,26 @@
 # Site Info
-title:              "kraftwerk"
-description:        "..."
-author_name:        "eon" # change this to your name
-logo_url:           https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/129/thinking-face_1f914.png # Get it from GitHub API: https://api.github.com/users/<username>
+title:              "The Plain"
+description:        "The Plain is a Minimalist Jekyll theme that focuses on writing matters."
+google_verify:      epFgX0s_0RM3CdjwFcsewfXzPov2g8s9ZBOLyaIUH-o # Put your Google Verification here
+google_analytics:   UA-XXXXXXX-X # Put your Google Analytics code
+
+# Author Info
+author_name:        "Heiswayi Nrird"
+author_email:       hnrird@gmail.com
+author_gravatar:    2b38b1b0e7e08b69379bd61582adf0c8 # Gravatar md5 hash
+twitter_username:   HeiswayiNrird
+github_username:    heiswayi # GitHub username
 
 # Site Settings
-url:                https://orslow.github.io # main url
-baseurl:            /
-permalink:          /:title # Post permalink
-timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-mathjax:            true  # enables support for mathjax - set to 'false' to disable
+baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
+permalink:          /notes/:title # Post permalink
+timezone:           Asia/Kuala_Lumpur # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Site Build
 highlighter:        rouge
+#markdown:           redcarpet
+#redcarpet:
+#    extensions:     ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "highlight", "footnotes"]
 markdown:           kramdown
 kramdown:
     input:          GFM
@@ -21,11 +29,14 @@ sass:
 
 # Other Params
 include:            [ "robots.txt" ]
-exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "script" ]
-plugins:
+exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
+gems:
   - jekyll-sitemap
 
-
+compress_html:
+    clippings:      all
+    ingore:
+        envs:       [ "test" ]
 
 defaults:
   -

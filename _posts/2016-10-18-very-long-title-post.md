@@ -3,7 +3,7 @@ title: For Example of very Long Title Would Be Typography Elements in One
 updated: 2016-10-18 23:37
 ---
 
-**NOTE:** This markdown cheatsheet is a typography demo for this theme. Check out this post to learn more about this markdown usage when you want to get started with this theme. Enjoy!
+> This is Markdown Cheatsheet Demo for **The Plain**, this Jekyll theme. Please check the raw content of this file for the markdown usage.
 
 ## Typography Elements in One
 
@@ -71,22 +71,6 @@ But let's throw in a <b>tag</b>.
 
 <div class="divider"></div>
 
-## Mathematics
-
-The theme comes ready with [mathjax](https://www.mathjax.org/) support built in, allowing for both simple inline equations like $$ax^2 + bx + c = 0$$ and much more complex mathematical expressions such as equation $$\eqref{eq:sample}$$ below.
-
-$$
-\begin{align}
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t}  &= \frac{4\pi}{c}\vec{\mathbf{j}} \\   
-\nabla \cdot \vec{\mathbf{E}} &= 4 \pi \rho \tag{2} \label{eq:sample}\\
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  &= \vec{\mathbf{0}} \\
-\nabla \cdot \vec{\mathbf{B}}  &= 0\\
-\end{align}
-$$
-
-<div class="divider"></div>
-
-
 ## Table
 
 ### Table 1: With Alignment
@@ -134,5 +118,6 @@ ___
 
 ![Minion](http://octodex.github.com/images/minion.png)
 
-[^1]: Footnote number one yeah baby! Long sentence test of footnote to see how the words are wrapping between each other. Might overflowww!
+[^1]: Footnote number one yeah baby!
+
 [^2]: A footnote you can link to - [click here!](#)
