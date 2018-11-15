@@ -39,8 +39,8 @@ $ (echo 'alias aws=" ~/Library/Python/3.7/bin/aws"' >> ~/.bash_profile)
 
 $ aws --version
 
-##### AWS CLI 구성
-https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html?shortFooter=true
+##### [AWS CLI 구성](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html?shortFooter=true)
+
 
 ##### Policy
 ![Policies]( {{ site.baseurl }}/assets/img/policies.png)
