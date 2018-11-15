@@ -30,9 +30,13 @@ Execution role -> Create a new role from one or more templates -> myBasicExecuti
 ##### AWS CLI 설치(저는 OS X 상에서 진행했습니다. (aws.amazon.com/cli 참고))
 
 $ curl -O https://bootstrap.pypa.io/get-pip.py
+
 $ python3 get-pip.py --user
+
 $ pip3 install awscli --upgrade --user
+
 $ (echo 'alias aws=" ~/Library/Python/3.7/bin/aws"' >> ~/.bash_profile)
+
 $ aws --version
 
 ##### AWS CLI 구성
@@ -42,6 +46,8 @@ https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.
 ![Policies](https://github.com/orslow/orslow.github.io/tree/master/assets/img/policies.png)
 
 $ aws lambda invoke --function-name greetingsOnDemand --payload '{"name":"John"}' output.txt
+
 $ aws lambda invoke --function-name greetingsOnDemand --payload '{}' output.txt
+
 $ aws lambda invoke help
 
