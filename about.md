@@ -3,10 +3,8 @@ layout: page
 title: About
 ---
 
-Hello.
+안녕하세요.
 
-The main purpose of this theme is to be as simple as it could be, so you can focus on writing your stuffs. This is your About page. You may describe about yourself here; who you are, what are you currently doing, share some of your projects, your social links and how people can contact you, etc.
+배운 것들을 까먹지 않기 위해 만든 페이지입니다.
 
-**Just write thing that matters..**
-
-Enjoy!
+제가 잘못한 것이 있거나 궁금하신 부분이 있으시면 <a href="mailto:jueonpk@gmail.com">여기</a>로 메일 부탁드립니다.
