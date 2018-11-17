@@ -108,7 +108,7 @@ Add mapping template -> 'application/json' 작성 후 클릭
 작성 후 테스트 진행(name이 빈 문자열일때도 처리)
 
 
-##응답 변환하기
+## 응답 변환하기
 Integration Response -> 펼치기 -> Mapping Templates -> 'application/json'
 
 ```
