@@ -1,6 +1,6 @@
 ---
-title: AWS Lambda 인 액션 Part 1(작성 중)
-updated: 2018-11-16 05:12
+title: AWS Lambda 인 액션 Part 1
+updated: 2018-11-18 02:48
 ---
 
 #### greetingsOnDemand (Lambda 함수코드)
@@ -105,4 +105,75 @@ Add mapping template -> 'application/json' 작성 후 클릭
 #end
 }
 ```
-작성 후 테스트 
+작성 후 테스트 진행(name이 빈 문자열일때도 처리)
+
+
+##응답 변환하기
+Integration Response -> 펼치기 -> Mapping Templates -> 'application/json'
+
+```
+{ "greeting": "$input.path('$')" }
+```
+
+## Deploy
+
+Actions -> Deploy API -> New Stage -> Name: Prod ... -> Deploy
+
+curl https://<my endpoint>/prod/greeting
+
+curl https://<my endpoint>/prod/greeting?name=John
+
+
+## * name을 resource 경로로 처리하기
+
+![resource by path]( {{ site.baseurl}}/assets/img/lambda-in-action-part1/resource_by_path.png)
+
+curl https://<my endpoint>/prod/user/John/greet
+
+<div class="divider"></div>
+
+### IP주소 따내는거 만들기
+
+#### Lambda 함수(만들기)
+
+```javascript
+exports.handler = (event, context, callback) => {
+    callback(null, event.myip);
+}
+```
+
+#### API Gateway 측 Method Execution
+
+![get_ip_gatewayside]( {{ site.baseurl}}/assets/img/lambda-in-action-part1/get_ip_gatewayside.png)
+
+
+curl https://<my endpoint>/prod/my-ip
+
+<div class="divider"></div>
+
+### 연습
+
+curl https://<my endpoint>/prod/user/{username}/say/{greeting} 하면
+
+{username} {greeting}! response로 나오도록 만들기
+
+```
+#set($name = $input.params('username'))
+#set($greet = $input.params('greet'))
+{
+#if($greet != "")
+    "greet": "$greet"
+    #if($name != "")
+    ,
+    #end
+#end
+
+#if($name != "")
+    "name": "$name"
+#end
+
+
+}
+```
+
+이 언어 문법 아직 이해가 잘 되지 않는다.
