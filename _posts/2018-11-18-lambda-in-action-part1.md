@@ -25,10 +25,10 @@ exports.handler = (event, context, callback) => {
 
 Execution role -> Create a new role from one or more templates -> myBasicExecution
 
-생성 후 상단에 json 형식으로 값(name)을 넣고 테스트 해볼 수 있습니다(log도 확인).
+생성 후 상단에 json 형식으로 값(name)을 넣고 테스트 해볼 수 있다(log도 확인).
 <div class="divider"></div>
 
-#### *AWS CLI 설치(저는 OS X 상에서 진행했습니다. ([https://aws.amazon.com/cli](https://aws.amazon.com/cli){:target="_blank"} 참고))
+#### *AWS CLI 설치(난 OS X 상에서 진행 ([https://aws.amazon.com/cli](https://aws.amazon.com/cli){:target="_blank"} 참고))
 
 $ curl -O https://bootstrap.pypa.io/get-pip.py
 
@@ -83,9 +83,9 @@ exports.handler = (event, context, callback) => {
 
 ### Lambda 함수 API Gateway 통합 
 
-| 리소스          | HTTP 동사      | AWS Lambda를 사용한 메소드   |
-| ------------- |-------------| -----              |
-| /greeting      | GET| greetingsOnDemand |
+| 리소스 | HTTP 동사  | AWS Lambda를 사용한 메소드   |
+| ------ |-------------| -----  |
+| /greeting | GET| greetingsOnDemand |
 
 Amazon API Gateway -> Create API -> 새 API, API이름 'My Utilities'
 
