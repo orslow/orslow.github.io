@@ -28,7 +28,7 @@ $ ./google-cloud-sdk/install.sh
 
 $ gcloud init
 
-이하 연동 및 ssh 접속하는거 [여기]([https://www.cyberciti.biz/faq/google-cloud-compute-engin-ssh-into-an-instance-from-linux-unix-appleosx/){:target="_blank} 참고
+이하 연동 및 ssh 접속하는거 [여기](https://www.cyberciti.biz/faq/google-cloud-compute-engin-ssh-into-an-instance-from-linux-unix-appleosx/){:target="_blank} 참고
 
 $ gcloud compute ssh cluster-us-west-1-m
 
@@ -41,7 +41,7 @@ $ gcloud compute ssh cluster-us-west-1-m
 ### 실습자료
 
 
-$ wget https://s3.*********.amazonaws.com/******/somedata.zip 학교 s3에서 받아오기(주소 빅데이터hw  슬라이드 참고)
+$ wget https://s3.\*\*\*\*\*\*.amazonaws.com/\*\*\*\*\*/somedata.zip 학교 s3에서 받아오기(주소 빅데이터hw  슬라이드 참고)
 
 $ unzip somedata.zip
 
