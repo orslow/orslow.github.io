@@ -3,7 +3,7 @@ title: Mongodb/Hadoop/Hive 과제 전 설정
 updated: 2018-11-28 20:00
 ---
 
-#### 국민대학교 이경용 교수님이 내주신 과제
+#### 국민대학교 이경용 교수님이 내주신 과제이고 슬라이드 참고했습니다. 문제되면 삭제하겠습니다.
 
 
 ## GCP Dataproc / VM Instance
