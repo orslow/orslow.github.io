@@ -56,7 +56,7 @@ $ hdfs dfs -put somedata/* /dataset/movielens/
 
 ### docker
 
-$ curl -fsSL https://get.docker.com/ | sudo sh
+$ curl -fsSL https://get.docker.com/ \| sudo sh
 
 $ sudo usermod -aG docker ${USER}
 
