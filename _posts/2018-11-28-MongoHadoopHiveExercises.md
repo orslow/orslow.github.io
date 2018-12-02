@@ -37,6 +37,16 @@ $ gcloud compute ssh cluster-us-west-1-m
 
 ## MapReduce 
 
+### Access the Hadoop jar and the required libraries
+
+
+$ echo "export HADOOP_CLASSPATH=$(hadoop classpath)" >> ~/.bashrc 
+
+$ source ~/.bashrc
+
+$ hadoop classpath
+
+
 
 ### 실습자료
 
