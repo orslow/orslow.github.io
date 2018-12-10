@@ -37,7 +37,7 @@ $ docker exec -it {MONGODB_CONTAINER_NAME} bash
 > video.select("helpful").take(5)
 ```
 
-spark로 하려했는데 wrappedarray 찾아보다가 일단 보류(포기)
+spark로 하려했는데 wrappedarray 찾아보다가 일단 보류
 
 hadoop으로 진행
 
@@ -109,7 +109,7 @@ public class rvRank {
 
         public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 
-                int sum=0;
+            int sum=0;
 
             for (IntWritable value : values) {
                     sum+=value.get();
@@ -143,5 +143,25 @@ $ hadoop jar rvRank.jar rvRank 10.146.0.2(internal ip address)/amazon.videos 10.
 ![result]( {{ site.baseurl }}/assets/img/bigdata_project/result.png)
 
 
+##### join시키기 (value column을 원래 리뷰 데이터 collection에 추가하여 새로운 collection "cd_merged" 만들기)
 
-item / reviewerID / 점수 만들고 오름차순으로 sorting 해보기?
+``` sh
+>	db.cds.aggregate([ { $lookup: { from: "cdrank", localField: "reviewerID", foreignField: "_id", as: "fromItems" } }, { $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$fromItems", 0 ] }, "$$ROOT" ] } } }, { $project: { fromItems: 0} }, { $out: "cd_merged" ])
+```
+
+
+
+특정 아이템에 대해(asin)
+
+![result_2]( {{ site.baseurl }}/assets/img/bigdata_project/result_2.png)
+
+
+
+전체 유저 helpfulScore 랭킹
+
+![result_3]( {{ site.baseurl }}/assets/img/bigdata_project/result_3.png)
+
+
+
+
+ 아마존 리뷰 데이터로부터 만들만한 다른거 없는지 생각해보기.
