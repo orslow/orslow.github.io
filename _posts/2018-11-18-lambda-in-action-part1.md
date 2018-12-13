@@ -44,7 +44,7 @@ $ echo 'alias aws=" ~/Library/Python/2.7/bin/aws"' >> ~/.bash_profile
 # 터미널 다시 시작
 $ aws --version
 $ aws configure
-# AWS IAM에서 만들고 받아서 치면 됨( 위 사이트에 자세히 적혀있음
+# AWS IAM에서 만들고 받아서 치면 됨(위 사이트에 자세히 적혀있음)
 ```
 
 
