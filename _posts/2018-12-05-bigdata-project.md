@@ -9,9 +9,9 @@ updated: 2018-12-05 23:50
 
 ### 아마존 리뷰데이터
 
-http://jmcauley.ucsd.edu/data/amazon/links.html
+[http://jmcauley.ucsd.edu/data/amazon/links.html](http://jmcauley.ucsd.edu/data/amazon/links.html){:target="_blank"}
 
-```bash
+```
 $ wget http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Video_Games_5.json.gz
 
 $ gunzip -k reviews_Video_Games_5.json.gz
@@ -128,7 +128,7 @@ public class rvRank {
 #### 실행
 
 
-```sh
+```
 $ mkdir user_rank
 $ javac -classpath $HADOOP_CLASSPATH -d user_rank rvRank.java
 $ jar -cvf rvRank.jar -C user_rank/ .
@@ -145,8 +145,8 @@ $ hadoop jar rvRank.jar rvRank 10.146.0.2(internal ip address)/amazon.videos 10.
 
 ##### join시키기 (value column을 원래 리뷰 데이터 collection에 추가하여 새로운 collection "cd_merged" 만들기)
 
-``` sh
->	db.cds.aggregate([ { $lookup: { from: "cdrank", localField: "reviewerID", foreignField: "_id", as: "fromItems" } }, { $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$fromItems", 0 ] }, "$$ROOT" ] } } }, { $project: { fromItems: 0} }, { $out: "cd_merged" ])
+```
+> db.cds.aggregate([ { $lookup: { from: "cdrank", localField: "reviewerID", foreignField: "_id", as: "fromItems" } }, { $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$fromItems", 0 ] }, "$$ROOT" ] } } }, { $project: { fromItems: 0} }, { $out: "cd_merged" ])
 ```
 
 
