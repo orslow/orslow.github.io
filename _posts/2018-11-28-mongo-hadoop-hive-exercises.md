@@ -3,7 +3,7 @@ title: Mongodb/Hadoop/Hive 과제 전 설정
 updated: 2018-11-28 20:00
 ---
 
-#### 국민대학교 이경용 교수님이 내주신 과제이고 슬라이드 참고했습니다. 문제되면 삭제하겠습니다.
+#### 국민대학교 이경용 교수님 수업의 슬라이드 참고했습니다. 문제되면 삭제하겠습니다.
 
 
 ## GCP Dataproc / VM Instance
@@ -57,7 +57,7 @@ $ hadoop classpath
 
 ```sh
 $ wget https://s3.****.amazonaws.com/****/somedata.zip 
-  ㄴ학교 s3에서 받아오기(주소 빅데이터hw  슬라이드 참고)
+  ㄴ학교 s3에서 받아오기(주소 빅데이터 슬라이드 참고)
 $ unzip somedata.zip
 $ rm -f somedata.zip
 $ head somedata/movies.csv
@@ -68,7 +68,7 @@ $ hdfs dfs -put somedata/* /dataset/movielens/
 
 ### docker
 
-```sh
+```
 $ curl -fsSL https://get.docker.com/ | sudo sh
 $ sudo usermod -aG docker ${USER}
 $ exit
