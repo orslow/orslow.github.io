@@ -34,6 +34,7 @@ vi conf.properties
 vi prepar.sh
 # BigdataBench_Home -> BigdataBench_HOME 수정
 ./prepar.sh
+
 # Sort 하러가기
 cd MicroBenchmark/OfflineAnalytics/Sort/
 vi genData_Sort.sh
