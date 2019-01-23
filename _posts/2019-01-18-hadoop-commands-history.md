@@ -1,12 +1,11 @@
 ---
-title: Hadoop 명령어 모아놓기
+title: HDFS / MongoDB Performance 관련 자료들
 updated: 2019-01-18 13:00
 ---
 
-##### Should be merged with BigdataBench post
+## BigDataBench
 
-
-## Sort
+### Sort
 
 ```sh
 
@@ -36,7 +35,71 @@ Generic options supported are:
 
 <div class="divider"></div>
 
+## TestDFSIO
 
-hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.1-tests.jar TestDFSIO
+```sh
 
-성능측정해주는 TestDFSIO 들어있는 jar 파일
+# https://github.com/apache/hadoop/blob/trunk/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-jobclient/src/test/java/org/apache/hadoop/fs/TestDFSIO.java
+hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*tests* TestDFSIO
+
+
+# https://github.com/apache/hadoop/blob/trunk/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-jobclient/src/test/java/org/apache/hadoop/fs/DFSCIOTest.java
+hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*tests* DFSCIOTest
+
+# tera sort 관련
+hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*examples*.jar teragen
+```
+
+<div class="divider"></div>
+
+[TestDFSIO 참고 사이트 1](https://medium.com/ymedialabs-innovation/hadoop-performance-evaluation-by-benchmarking-and-stress-testing-with-terasort-and-testdfsio-444b22c77db2){:target="_blank"}
+
+[TestDFSIO 참고 사이트 2](https://community.pivotal.io/s/article/Running-DFSIO-MapReduce-benchmark-test){:target="_blank"}
+
+<div class="divider"></div>
+
+
+### 잘 되는지 해보기
+
+#### 1GB * 10 Write/Read
+
+----- TestDFSIO ----- : write
+            Date & time: Wed Jan 23 03:16:03 UTC 2019
+        Number of files: 10
+ Total MBytes processed: 10240
+      Throughput mb/sec: 77.9
+ Average IO rate mb/sec: 167.31
+  IO rate std deviation: 109.19
+     Test exec time sec: 61.33
+
+----- TestDFSIO ----- : read
+            Date & time: Wed Jan 23 03:17:41 UTC 2019
+        Number of files: 10
+ Total MBytes processed: 10240
+      Throughput mb/sec: 50.78
+ Average IO rate mb/sec: 54.84
+  IO rate std deviation: 13.24
+     Test exec time sec: 56.75
+
+
+#### 1GB * 20 Write/Read
+
+----- TestDFSIO ----- : write
+            Date & time: Wed Jan 23 03:09:41 UTC 2019
+        Number of files: 20
+ Total MBytes processed: 20480
+      Throughput mb/sec: 40.1
+ Average IO rate mb/sec: 104.26
+  IO rate std deviation: 100.28
+     Test exec time sec: 166.49
+
+----- TestDFSIO ----- : read
+            Date & time: Wed Jan 23 03:13:29 UTC 2019
+        Number of files: 20
+ Total MBytes processed: 20480
+      Throughput mb/sec: 33.47
+ Average IO rate mb/sec: 43.78
+  IO rate std deviation: 44.97
+     Test exec time sec: 148.32
+
+<div class="divider"></div>
