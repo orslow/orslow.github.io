@@ -8,7 +8,6 @@ updated: 2019-01-18 13:00
 ### Sort
 
 ```sh
-
 ${HADOOP_HOME}/bin/hadoop jar  ${HADOOP_HOME}/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar sort /data4/sort/in /data4/sort/out
 
 ${HADOOP_HOME}/bin/hadoop jar  ${HADOOP_HOME}/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar sort -inFormat org.apache.hadoop.mapreduce.lib.input.TextInputFormat
@@ -38,7 +37,6 @@ Generic options supported are:
 ## TestDFSIO
 
 ```sh
-
 # https://github.com/apache/hadoop/blob/trunk/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-jobclient/src/test/java/org/apache/hadoop/fs/TestDFSIO.java
 hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*tests* TestDFSIO
 
@@ -65,20 +63,32 @@ hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*examples*.jar 
 
 ----- TestDFSIO ----- : write
             Date & time: Wed Jan 23 03:16:03 UTC 2019
+
         Number of files: 10
+
  Total MBytes processed: 10240
+
       Throughput mb/sec: 77.9
+
  Average IO rate mb/sec: 167.31
+
   IO rate std deviation: 109.19
+
      Test exec time sec: 61.33
 
 ----- TestDFSIO ----- : read
             Date & time: Wed Jan 23 03:17:41 UTC 2019
+
         Number of files: 10
+
  Total MBytes processed: 10240
+
       Throughput mb/sec: 50.78
+
  Average IO rate mb/sec: 54.84
+
   IO rate std deviation: 13.24
+
      Test exec time sec: 56.75
 
 
@@ -86,20 +96,32 @@ hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*examples*.jar 
 
 ----- TestDFSIO ----- : write
             Date & time: Wed Jan 23 03:09:41 UTC 2019
+
         Number of files: 20
+
  Total MBytes processed: 20480
+
       Throughput mb/sec: 40.1
+
  Average IO rate mb/sec: 104.26
+
   IO rate std deviation: 100.28
+
      Test exec time sec: 166.49
 
 ----- TestDFSIO ----- : read
             Date & time: Wed Jan 23 03:13:29 UTC 2019
+
         Number of files: 20
+
  Total MBytes processed: 20480
+
       Throughput mb/sec: 33.47
+
  Average IO rate mb/sec: 43.78
+ 
   IO rate std deviation: 44.97
+
      Test exec time sec: 148.32
 
 <div class="divider"></div>
