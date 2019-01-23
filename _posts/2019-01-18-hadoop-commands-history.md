@@ -17,10 +17,11 @@ ${HADOOP_HOME}/bin/hadoop jar  ${HADOOP_HOME}/share/hadoop/mapreduce/hadoop-mapr
 
 # 뭘 하는진 모르겠는데 되긴 됨
 ${HADOOP_HOME}/bin/hadoop jar  ${HADOOP_HOME}/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar sort -inFormat org.apache.hadoop.mapreduce.lib.input.TextInputFormat -outFormat org.apache.hadoop.mapreduce.lib.output.TextOutputFormat -outKey org.apache.hadoop.io.LongWritable -outValue org.apache.hadoop.io.Text /tmpya /ho/
-
-
 ```
 
+<div class="divider"></div>
+
+```sh
 sort [-r <reduces>] [-inFormat <input format class>] [-outFormat <output format class>] [-outKey <output key class>] [-outValue <output value class>] [-totalOrder <pcnt> <num samples> <max splits>] <input> <ou
 tput>
 Generic options supported are:
@@ -31,13 +32,9 @@ Generic options supported are:
 -files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
 -libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
 -archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+```
 
-
-
-
-
-
-
+<div class="divider"></div>
 
 
 hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-3.1.1-tests.jar TestDFSIO
