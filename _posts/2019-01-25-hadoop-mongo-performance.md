@@ -1,4 +1,4 @@
---
+---
 title: HDFS / MongoDB Performance 관련
 updated: 2019-01-24 16:10
 ---
@@ -7,7 +7,7 @@ updated: 2019-01-24 16:10
 
 sequential file로 만들고, sequential file 형식을 받아서 sorting함(sequence file은 hdfs dfs -text <src> 로 읽을 수 있음)
 
-``sh
+```sh
 # sequence file 1GB짜리 두개 생성.
 hadoop jar ${HADOOP_HOME}/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar randomwriter -D mapreduce.randomwriter.bytespermap=1073741824 -D mapreduce.randomwriter.mapsperhost=1 /data/sort/in
 
