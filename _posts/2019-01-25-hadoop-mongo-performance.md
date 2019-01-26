@@ -53,6 +53,7 @@ hadoop jar /usr/local/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-*examples*.jar 
 ## 직접 작성한 코드로 실행한 MapReduce 결과를 비교해보기
 
 #### 갑자기 datanode 떨어졌었는데 해결법
+
 ```sh
 # 내리기
 docker exec -ti master bash 
@@ -77,6 +78,7 @@ start-all.sh
 ```
 
 #### 작업 listing/kill
+
 ```sh
 # version >=2.3.0
 yarn application -list
@@ -85,4 +87,24 @@ yarn application -kill $ApplicationId
 # version <2.3.0
 hadoop job -list
 hadoop job -kill $jobId
+```
+
+#### jar 만들고 돌리기(run.sh)
+
+```sh
+#!/bin/bash
+
+rm Sort.jar
+
+rm -rf sort
+
+mkdir sort
+
+hdfs dfs -rm -r /sorted
+
+javac -classpath $HADOOP_CLASSPATH -d sort Sort.java
+
+jar -cvf Sort.jar -C sort/ .
+
+hadoop jar Sort.jar Sort /unsored /sorted
 ```
