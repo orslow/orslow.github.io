@@ -53,6 +53,6 @@ userdel eon
 killall -u eon
 
 # 홈폴더 삭제 옵션 줘서 다 삭제 (필요한 파일이 있다면 미리 꺼내놓기)
-deluser --remove-home -f username
+deluser --remove-home -f eon
 ```
 
