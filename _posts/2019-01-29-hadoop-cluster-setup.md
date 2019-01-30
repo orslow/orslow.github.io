@@ -1,6 +1,6 @@
 ---
 title: hadoop 3.2.0 cluster setup
-updated: 2019-01-29 14:37
+updated: 2019-01-29 16:37
 ---
 
 #### 연구실에서 만들어놓은 도커 이미지로 구성해서 쓰니까 내부를 전혀 모르겠어서 직접 해보기로 했다.
@@ -47,7 +47,7 @@ alias worker3="ssh eon@100.13.1.4"
 
 ### 자바 설치(모든 인스턴스에)
 
-``sh
+```sh
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install software-properties-common -y
@@ -66,7 +66,7 @@ sudo add-apt-repository -r ppa:webupd8team/java -y
 sudo vi /etc/hosts
 ```
 
-master의 ip주소와 worker들의 주소 write
+아래내용(master의 ip주소와 worker들의 주소) write
 ```
 127.0.0.1 localhost master
 
