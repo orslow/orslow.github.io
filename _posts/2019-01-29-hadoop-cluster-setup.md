@@ -161,12 +161,12 @@ vi core-site.xml
     </property>
 </configuration>
 
-vi hdfs-site.xml
-
 # worker node로 hadoop폴더 통째로 복사해줄거라 일단 data폴더도 만들기
 mkdir /usr/local/hadoop/dfs
 mkdir /usr/local/hadoop/dfs/name
 mkdir /usr/local/hadoop/dfs/data
+
+vi hdfs-site.xml
 
 # Namenode 가 저장할 경로 지정. 위와 마찬가지로 worker 노드에서 필요한 데이터 경로도 지정.
 <configuration>
