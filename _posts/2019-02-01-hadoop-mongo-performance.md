@@ -74,8 +74,10 @@ with open('unsorted', 'w') as new:
 
 -> 파이썬 랜덤모듈 써서 만든 데이터 진짜 랜덤이라고 할 수 있을까??
 
+
+### 데이터 분배하고 실행하기
+
 ```sh
-# mongo/hadoop에 나눠주기
 docker cp unsorted mongodb:/home/
 docker cp unsorted master:/home/
 
@@ -84,9 +86,7 @@ docker exec -ti mongodb bash
 # sort db에 unsorted라는 collection으로 추가
 mongoimport -d sort -c unsorted --type tsv --file /home/unsorted -f _id,value --numInsertionWorkers 8
 exit
-```
 
-```sh
 docker exec -ti master bash
 hdfs dfs -put /home/unsorted /
 ```
