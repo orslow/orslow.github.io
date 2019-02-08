@@ -1,6 +1,6 @@
 ---
 title: HDFS / MongoDB Performance 관련
-updated: 2019-02-01 11:10
+updated: 2019-02-08 19:10
 ---
 
 ## 하둡의 native library 써보기
@@ -67,7 +67,7 @@ import string
 a=0
 with open('unsorted', 'w') as new:
   for i in range(100000000):
-	    digits=str(a)+" "+"".join([random.choice(string.digits+string.letters) for i in xrange(10)])
+	    digits=str(a)+"\t"+"".join([random.choice(string.digits+string.letters) for i in xrange(10)])
 	    new.write(digits+"\n")
 	    a=a+1
 ```
@@ -234,22 +234,19 @@ public class Sort {
         job.waitForCompletion(true);
     }
 
-    public static class Map extends Mapper<ObjectId, BSONObject, Text, Text> {
+    public static class Map extends Mapper<Integer, BSONObject, Text, Text> {
 
         Text id = new Text();
         private Text frequency = new Text();
         private final static IntWritable one = new IntWritable(1);
 
-        public void map(ObjectId key, BSONObject value, Context context) throws IOException, InterruptedException {
+        public void map(Integer key, BSONObject value, Context context) throws IOException, InterruptedException {
             //String w = value.get("_id").toString();
             String w = key.toString();
             String freq = String.valueOf(value.get("value"));
 
             id.set(w);
             frequency.set(freq);
-
-            Text kef = new Text();
-            kef.set("KEFKRIT");
 
             context.write(frequency, id);
         }

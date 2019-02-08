@@ -56,3 +56,12 @@ killall -u eon
 deluser --remove-home -f eon
 ```
 
+<div class="divider"></div>
+
+### 비밀번호 변경
+
+```sh
+sudo passwd eon
+```
+
+-> sudo 안주면 simple한 password로 못함
