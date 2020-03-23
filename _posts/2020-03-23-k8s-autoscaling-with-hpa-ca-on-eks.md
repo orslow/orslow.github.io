@@ -3,7 +3,7 @@ title: Very Simple Kubernetes Autoscaling(HPA, CA) on EKS with Helm
 updated: 2020-03-23 17:18
 ---
 
-#### HPA(Horizontal Pod Autoscaler)로 k8s의 pod이 scaling 되도록 설정하고, scale-out 중 cluster의 resource가 부족하면 CA(Cluster Autoscaler)설정를 통해 클러스터(여기서는 EC2 instance)를 scaling하는 것을 해봅니다.
+HPA(Horizontal Pod Autoscaler)로 k8s의 pod이 scaling 되도록 설정하고, scale-out 중 cluster의 resource가 부족하면 CA(Cluster Autoscaler)설정를 통해 클러스터(여기서는 EC2 instance)를 scaling하는 것을 해봅니다.
 
 ##### ap-northeast-1 지역에서 진행한다고 가정하고 작성했습니다. (Amazon Linux 2 AMI t2.micro 인스턴스 내에서 실습 진행)
 
@@ -27,7 +27,7 @@ aws iam list-attached-user-policies --user-name {YOUR_USER_PROFILE_NAME}
 ### eksctl, kubectl 설치
 
 eksctl is a simple CLI tool for creating clusters on EKS - 
-Amazon’s new managed Kubernetes service for EC2 [eksctl.io](https://eksctl.io){:target="_blank"}
+Amazon’s new managed Kubernetes service for EC2 [(eksctl.io)](https://eksctl.io){:target="_blank"}
 
 
 ```sh
@@ -50,6 +50,7 @@ eksctl version
 ### eksctl 명령어 이용해서 클러스터 생성하기
 
 --managed: EKS-managed nodegroup 으로 구성 (c.f. fargate)
+
 --asg-access: node들에게 autoscaling 하기 위한 권한 부여
 
 ```sh
@@ -135,7 +136,7 @@ kubectl autoscale deployment php-apache --cpu-percent=30 --min=1 --max=10
 ### Complete CA config with Helm
 
 helm의 cluster-autoscaler chart를 이용해 CA 설정.(`{YOUR_EKS_CLUSTER_NAME}`에 자신의 클러스터 이름을 넣고 진행)
-[cluster-autoscaler github](https://github.com/helm/charts/tree/master/stable/cluster-autoscaler){:target="_blank"}
+[(github)](https://github.com/helm/charts/tree/master/stable/cluster-autoscaler){:target="_blank"}
 
 ```sh
 helm install cluster-autoscaler stable/cluster-autoscaler --set \
@@ -167,22 +168,23 @@ watch kubectl get pods
 watch kubectl get nodes
 ```
 
-![load_generator]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/load_generator.png)
-<div class="divider"></div>
-
+scale-out 초기
 ![phase_1]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_1.png)
 <div class="divider"></div>
 
+console EC2 인스턴스 생성(node scale-out)
 ![ec2_console]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/ec2_console.png)
 <div class="divider"></div>
 
-![phase_2]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_1.png)
+pod, node들 늘어난 것
+![phase_2]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_2.png)
 <div class="divider"></div>
 
-![phase_3]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_1.png)
+3분 후 scale-down
+![phase_3]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_3.png)
 <div class="divider"></div>
 
-각 그림마다 pod이 늘어나고 node가 늘어났다가 3분 후 request가 끝나고 다시 scale down 하는 것을 볼 수 있습니다.
+각 그림에 따라 pod이 늘어나고 node가 늘어났다가 3분 후 request가 끝나고 다시 scale-down 하는 것을 볼 수 있습니다.
 
 scale down은 k8s의 policy에 따라 천천히 이루어지는데 EKS에서는 설정하는 것이 아직 지원되지 않는 것으로 보입니다.[관련 링크](https://github.com/aws/containers-roadmap/issues/159){:target="_blank"}
 
@@ -200,4 +202,8 @@ kubectl delete hpa php-apache
 helm uninstall horizontal-pod-autoscaler cluster-autoscaler
 ```
 
+<div class="divider"></div>
+
 fargate로 노드 구성해보는 것도 궁금하고 해보고싶다.
+흰색 터미널로 스크린샷 찍으니까 구분이 잘 안되는 것 같다.
+
