@@ -1,5 +1,5 @@
 ---
-title: 다시 만들지 않고 docker container 포트 여는 법
+title: 컨테이너 다시 만들지 않고 docker container 포트 여는 법
 updated: 2019-05-17 15:18
 ---
 
