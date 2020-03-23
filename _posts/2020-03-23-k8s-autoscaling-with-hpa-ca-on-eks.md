@@ -3,9 +3,9 @@ title: Very Simple Kubernetes Autoscaling(HPA, CA) on EKS with Helm
 updated: 2020-03-23 17:18
 ---
 
-### HPA(Horizontal Pod Autoscaler)로 k8s의 pod이 scale-out 되도록 설정하고, scale-out 중 cluster의 resource가 부족하면 CA(Cluster Autoscaler)설정를 통해 클러스터(여기서는 EC2 instance)를 scaling하는 것을 해봅니다.
+#### HPA(Horizontal Pod Autoscaler)로 k8s의 pod이 scaling 되도록 설정하고, scale-out 중 cluster의 resource가 부족하면 CA(Cluster Autoscaler)설정를 통해 클러스터(여기서는 EC2 instance)를 scaling하는 것을 해봅니다.
 
-#### ap-northeast-1 지역에서 진행한다고 가정하고 작성했습니다. (Amazon Linux 2 AMI t2.micro 인스턴스 내에서 실습 진행)
+##### ap-northeast-1 지역에서 진행한다고 가정하고 작성했습니다. (Amazon Linux 2 AMI t2.micro 인스턴스 내에서 실습 진행)
 
 
 ### AWS 계정 설정
@@ -22,6 +22,7 @@ aws iam list-attached-user-policies --user-name {YOUR_USER_PROFILE_NAME}
 
 ![aws_configure]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/aws_configure.png)
 
+<div class="divider"></div>
 
 ### eksctl, kubectl 설치
 
@@ -42,6 +43,8 @@ eksctl version
 ```
 
 ![eksctl_kubectl]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/eksctl_kubectl.png)
+
+<div class="divider"></div>
 
 
 ### eksctl 명령어 이용해서 클러스터 생성하기
@@ -64,6 +67,8 @@ eksctl create cluster --name=hello-world --nodes=3 --managed --alb-ingress-acces
 
 ![eksctl_create]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/eksctl_create.png)
 
+<div class="divider"></div>
+
 
 ### Helm 설치
 
@@ -77,6 +82,7 @@ helm version --short  # check "v3.1.2+gd878d4d" alike
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
+<div class="divider"></div>
 
 ### Install metrics-server with Helm
 
@@ -90,7 +96,10 @@ kubectl get apiservice v1beta1.metrics.k8s.io -o yaml
 ```
 
 ![hpa]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/hpa.png)
+<div class="divider"></div>
+
 ![hpa_check]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/hpa_check.png)
+<div class="divider"></div>
 
 
 
@@ -107,6 +116,7 @@ kubectl autoscale deployment php-apache --cpu-percent=30 --min=1 --max=10
 
 ![php-apache]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/php-apache.png)
 
+<div class="divider"></div>
 
 ### CA config on console
 
@@ -115,7 +125,11 @@ kubectl autoscale deployment php-apache --cpu-percent=30 --min=1 --max=10
 스크린샷에 나온 것처럼 edit 후 Max 8 정도로 설정
 
 ![console_1]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/console_1.png)
+
+<div class="divider"></div>
 ![console_2]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/console_2.png)
+
+<div class="divider"></div>
 
 
 ### Complete CA config with Helm
@@ -130,6 +144,7 @@ helm install cluster-autoscaler stable/cluster-autoscaler --set \
 
 ![ca_helm]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/ca_helm.png)
 
+<div class="divider"></div>
 
 ### Generate Load to Trigger Scaling
 
@@ -153,19 +168,25 @@ watch kubectl get nodes
 ```
 
 ![load_generator]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/load_generator.png)
+<div class="divider"></div>
 
 ![phase_1]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_1.png)
+<div class="divider"></div>
 
 ![ec2_console]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/ec2_console.png)
+<div class="divider"></div>
 
 ![phase_2]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_1.png)
+<div class="divider"></div>
 
 ![phase_3]( {{ site.baseurl }}/assets/img/2020-03-23-k8s/phase_1.png)
+<div class="divider"></div>
 
 각 그림마다 pod이 늘어나고 node가 늘어났다가 3분 후 request가 끝나고 다시 scale down 하는 것을 볼 수 있습니다.
 
 scale down은 k8s의 policy에 따라 천천히 이루어지는데 EKS에서는 설정하는 것이 아직 지원되지 않는 것으로 보입니다.[관련 링크](https://github.com/aws/containers-roadmap/issues/159){:target="_blank"}
 
+<div class="divider"></div>
 
 ### Cleanup
 
