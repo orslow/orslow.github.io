@@ -134,7 +134,7 @@ vi conf/shiro.ini
 
 ![shiro_user_1]( {{ site.baseurl }}/assets/img/2020-10-19-zeppelin/shiro_user_1.png)
 
-<username> = <password>, <roleName1>, <roleName2>, ... 형식으로 작성하면 됩니다.
+\<username\> = \<password\>, \<roleName1\>, \<roleName2\>, ... 형식으로 작성하면 됩니다.
 
 저는 나머지 유저들은 주석처리하고 비밀번호가 0000이고 역할이 admin인 jueon 유저를 생성하겠습니다.
 
