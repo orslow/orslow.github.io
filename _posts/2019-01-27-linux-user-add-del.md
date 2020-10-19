@@ -12,7 +12,7 @@ ssh-keygen -t rsa
 
 # 적절한 폴더에 원하는 이름으로 만들기(나는 default로 설정된 경로, 파일명으로 만들었다)
 
-cat /Users/eon/.ssh/id_rsa.pub
+cat /Users/jueon/.ssh/id_rsa.pub
 
 # 복사하기
 ```
@@ -25,11 +25,11 @@ cat /Users/eon/.ssh/id_rsa.pub
 # sudo 권한 주기
 sudo vi /etc/sudoers
 
-# eon이라는 이름으로 만듦
-adduser eon
+# jueon이라는 이름으로 만듦
+adduser jueon
 # password만 설정하고 기억
 
-su - eon
+su - jueon
 
 mkdir ~/.ssh
 
@@ -47,13 +47,13 @@ cut -d: -f1 /etc/passwd
 ### 유저 삭제
 
 ```sh
-userdel eon
+userdel jueon
 
 # 유저에서 실행되고 있는 프로세스 모두 kill하고 지우기
-killall -u eon
+killall -u jueon
 
 # 홈폴더 삭제 옵션 줘서 다 삭제 (필요한 파일이 있다면 미리 꺼내놓기)
-deluser --remove-home -f eon
+deluser --remove-home -f jueon
 ```
 
 <div class="divider"></div>
@@ -61,7 +61,7 @@ deluser --remove-home -f eon
 ### 비밀번호 변경
 
 ```sh
-sudo passwd eon
+sudo passwd jueon
 ```
 
 -> sudo 안주면 simple한 password로 못함
