@@ -162,7 +162,7 @@ vi conf/shiro.ini
 
 ```sh
 exit # 컨테이너에서 나오기
-docker restart my-zeppelin-container bash
+docker restart my-zeppelin-container
 ```
 
 다시 브라우저를 열어 컨테이너를 만든 머신의 IP에 포트번호 18080을 붙여 접속해봅니다.
